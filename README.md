@@ -1,4 +1,4 @@
-# AI Readiness Program
+# AI for Employability & Entrepreneurship
 
 Proposal pages for universities, one folder per university, served on GitHub Pages.
 

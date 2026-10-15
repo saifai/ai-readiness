@@ -295,3 +295,22 @@ mark.tbc { background: #fff1a8; color: #4a3b00; padding: 1px 5px; border-radius:
 .closing .sig { font-size: 0.9rem; color: var(--ink-2); }
 footer { text-align: center; }
 @media print { mark.tbc { background: none; outline: 1px dashed #b08d00; } .video { display: none; } }
+
+/* Program name, shown as a badge in the hero */
+.pname { display: inline-block; font-family: var(--f-display); font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--jacaranda); padding: 6px 18px; border: 1.5px solid var(--jacaranda); border-radius: 999px; }
+
+/* The two outcomes, side by side */
+.outcomes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.outcome { background: var(--sheet); border: 1px solid var(--rule); border-top: 4px solid var(--jacaranda); border-radius: 8px; padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 14px; break-inside: avoid; }
+.outcome .tag, .proof .tag { font-family: var(--f-data); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--jacaranda); }
+.outcome h3 { font-size: clamp(1.4rem, 2.6vw, 1.75rem); }
+.outcome > p { color: var(--ink-2); }
+.outcome h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 4px 0 0; }
+.outcome ul { gap: 6px; }
+.made { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--rule); padding-top: 14px; margin-top: auto; }
+.made div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.made span { font-size: 0.93rem; }
+.made small { display: block; color: var(--ink-2); font-size: 0.8rem; }
+.made .btn { flex-shrink: 0; padding: 5px 12px; font-size: 0.78rem; }
+.outcome blockquote { font-size: 1rem; }
+@media (max-width: 820px) { .outcomes { grid-template-columns: 1fr; } }
