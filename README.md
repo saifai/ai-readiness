@@ -1,4 +1,4 @@
-# AI for Employability & Entrepreneurship
+# Mastering AI for Graduate Employability and Entrepreneurship
 
 Proposal pages for universities, one folder per university, served on GitHub Pages.
 
