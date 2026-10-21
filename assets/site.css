@@ -372,3 +372,61 @@ body.theme-aishift {
 .theme-aishift .hero .facts span { color: #ece5fd; }
 .theme-aishift .hero .facts b { color: #fff; }
 @media print { .theme-aishift .hero { border-image: none; color: var(--ink); } .theme-aishift .hero * { color: var(--ink) !important; } }
+
+/* ===== FLOW theme (university pages). Colours and type from the FLOW Brand Guidelines, March 2024 ===== */
+body.theme-flow {
+  --paper: #f0f0f0; --sheet: #fafafa; --ink: #232323; --ink-2: #57535e; --rule: #dcd8e2;
+  --juniper: #5b44b2; --jacaranda: #5b44b2; --jacaranda-soft: #e6e0f4; --ochre: #a490d3; --bar-bg: #e6e2ee;
+  --f-display: "Cormorant Garamond", "ITC Garamond", Garamond, Georgia, serif;
+  --f-body: "Satoshi", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-data: "Satoshi", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --hero-bg: #e4dcf3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.theme-flow {
+    --paper: #232323; --sheet: #2b2b2d; --ink: #f0f0f0; --ink-2: #b6b2bd; --rule: #3b3a40;
+    --juniper: #b9a8e3; --jacaranda: #b9a8e3; --jacaranda-soft: #352e4a; --ochre: #a490d3; --bar-bg: #2f2c38;
+    --hero-bg: #2a2539;
+  }
+}
+:root[data-theme="dark"] body.theme-flow {
+  --paper: #232323; --sheet: #2b2b2d; --ink: #f0f0f0; --ink-2: #b6b2bd; --rule: #3b3a40;
+  --juniper: #b9a8e3; --jacaranda: #b9a8e3; --jacaranda-soft: #352e4a; --ochre: #a490d3; --bar-bg: #2f2c38;
+  --hero-bg: #2a2539;
+}
+body.theme-flow { font-weight: 500; }
+/* Garamond for H1/H3, Satoshi Bold for H2, tracked caps for subheads */
+.theme-flow h1, .theme-flow h3, .theme-flow .facts b, .theme-flow .flow b, .theme-flow .proof b { font-weight: 500; letter-spacing: -0.005em; }
+.theme-flow .hero h1 { font-size: clamp(2.6rem, 6.6vw, 4.8rem); line-height: 1.02; }
+.theme-flow h2 { font-family: var(--f-body); font-weight: 700; letter-spacing: -0.015em; line-height: 1.12; }
+.theme-flow h3 { font-weight: 600; font-size: 1.5rem; }
+.theme-flow .facts b { font-size: 2.6rem; }
+.theme-flow .eyebrow, .theme-flow .outcome .tag, .theme-flow .proof .tag, .theme-flow .outcome h4 { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.3em; }
+.theme-flow .pill { font-weight: 700; letter-spacing: 0.12em; }
+.theme-flow .flow div::before { font-weight: 700; letter-spacing: 0.2em; }
+.theme-flow blockquote, .theme-flow .lead-quote { font-weight: 500; font-size: clamp(1.35rem, 2.6vw, 1.75rem); line-height: 1.3; }
+.theme-flow .btn { color: #fafafa; border-radius: 4px; }
+.theme-flow .btn.ghost { color: var(--jacaranda); }
+:root[data-theme="dark"] .theme-flow .btn:not(.ghost) { color: #232323; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme-flow .btn:not(.ghost) { color: #232323; } }
+.theme-flow .card, .theme-flow .outcome, .theme-flow .gallery img { border-radius: 4px; }
+
+/* Hero: plain light lavender ground; the FLOW waves sit in their own band below it, never behind text */
+/* Deep lavender vertical gradient (brand gradients), Garamond in Flash White, Sunset for the eyebrow */
+.theme-flow .hero { --hero-top: #1e1a2b; --hero-bottom: #3b2d70; box-shadow: none; clip-path: none; border-image: linear-gradient(180deg, var(--hero-top), var(--hero-bottom)) fill 0 // 0 100vmax; color: #f0f0f0; position: relative; padding-bottom: 168px; }
+.theme-flow .hero::after { content: ""; position: absolute; left: -100vmax; right: -100vmax; bottom: 20px; height: 128px; background: url(img/flow-waves-light.svg) center / auto 100% repeat-x; opacity: 0.75; pointer-events: none; }
+.theme-flow .hero .flow-logo { background: #f0f0f0; }
+.theme-flow .hero .eyebrow { color: #f1ce8c; }
+.theme-flow .hero h1 { color: #f0f0f0; }
+.theme-flow .hero .lede { color: #dcd6ea; }
+.theme-flow .hero .btn { background: #a490d3; color: #1e1a2b; }
+.theme-flow .hero .btn.ghost { background: none; color: #f0f0f0; box-shadow: inset 0 0 0 1.5px rgba(240,240,240,0.75); }
+.theme-flow .hero .facts, .theme-flow .hero .facts div { border-color: rgba(240,240,240,0.2); }
+.theme-flow .hero .facts b { color: #f1ce8c; }
+.theme-flow .hero .facts span { color: #f0f0f0; }
+.theme-flow .hero .facts small { color: #b9b1cf; }
+.theme-flow .hero figcaption { color: #cfc8e0; }
+.theme-flow .hero img { border-color: rgba(240,240,240,0.15); }
+@media (max-width: 480px) { .theme-flow .hero { padding-bottom: 120px; } .theme-flow .hero::after { height: 80px; bottom: 16px; } }
+.flow-logo { display: block; width: 150px; max-width: 60%; aspect-ratio: 480 / 145; background: var(--ink); -webkit-mask: url(img/flow-logo.png) center / contain no-repeat; mask: url(img/flow-logo.png) center / contain no-repeat; }
+@media print { .theme-flow .hero::after { display: none; } .theme-flow .hero { padding-bottom: 56px; border-image: none; color: var(--ink); } .theme-flow .hero * { color: var(--ink) !important; } .theme-flow .hero .flow-logo { background: var(--ink); } .theme-flow .hero { box-shadow: none; background: none; } }
