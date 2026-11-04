@@ -188,7 +188,7 @@
   <p class="for">Prepared for The Deanship of Student Affairs</p>
   <h1>Mastering AI for Graduate Employability and Entrepreneurship</h1>
   <p class="promise">Your graduating class, building with AI online, with support after the program.</p>
-  <a class="btn pdf" href="KKU-AI-Program-Proposal.pdf" download>Download PDF</a>
+  <a class="btn pdf" href="KKU-AI-Program-Proposal.pdf" download="KKU-AI-Program-Proposal.pdf">Download PDF</a>
 </header>
 
 <section aria-labelledby="seen">
@@ -286,5 +286,28 @@
 
 </article>
 </main>
+<script>
+// Save the PDF instead of opening it: fetch it and hand the browser a file to download.
+// If anything fails, the link falls back to opening the PDF.
+document.querySelectorAll('a.pdf').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    if (!window.fetch || !window.URL || !URL.createObjectURL) return;
+    event.preventDefault();
+    fetch(link.href).then(function (response) {
+      if (!response.ok) throw new Error('download failed');
+      return response.blob();
+    }).then(function (blob) {
+      var url = URL.createObjectURL(new Blob([blob], { type: 'application/octet-stream' }));
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = link.getAttribute('download') || 'proposal.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+    }).catch(function () { window.location.href = link.href; });
+  });
+});
+</script>
 </body>
 </html>
