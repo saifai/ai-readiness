@@ -16,126 +16,140 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
 <style>
-/* One-page proposal. Uses the KKU colour variables from site.css; op- classes keep the landing-page rules out. */
-.op { max-width: 920px; margin: 0 auto; padding: 24px 16px 48px; }
-.op-sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
-.op section { display: block; padding: 22px 28px; border-top: 1px solid var(--rule); background: none; box-shadow: none; clip-path: none; break-before: auto; }
-.op h2 { font-size: 1.3rem; margin-bottom: 12px; }
-.op h3 { font-size: 1.1rem; }
-.op .eyebrow { font-size: 0.7rem; margin-bottom: 6px; }
-.op ul { gap: 3px; }
-.op p + p, .op p + ul, .op ul + p { margin-top: 8px; }
+/* One-page proposal. Uses the KKU colour variables from site.css; op- classes keep the landing-page rules out.
+   Roomy on screen: a short page a reader skims to get interested, not a dense sheet. */
+.op { max-width: 1000px; margin: 0 auto; padding: 40px 20px 72px; }
+.op-sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+.op section { display: block; padding: 48px 56px; border-top: 1px solid var(--rule); background: none; box-shadow: none; clip-path: none; break-before: auto; }
+.op h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom: 18px; }
+.op h3 { font-size: 1.3rem; }
+.op .eyebrow { font-size: 0.75rem; margin-bottom: 10px; }
+.op ul { gap: 8px; }
+.op p + p, .op p + ul, .op ul + p { margin-top: 14px; }
 
-.op-head { background: var(--juniper); color: #fff; padding: 26px 28px 22px; display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: start; }
+.op-head { background: var(--juniper); color: #fff; padding: 56px 56px 48px; display: grid; grid-template-columns: 1fr auto; gap: 14px 32px; align-items: start; }
 .op-head .eyebrow { color: #bfe3cf; margin: 0; }
-.op-head h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.12; max-width: 30ch; grid-column: 1 / -1; }
-.op-head .promise { font-size: 1.1rem; color: #e2f2e9; grid-column: 1; }
-.op-head .for { font-size: 0.85rem; color: #bfe3cf; grid-column: 2; grid-row: 1; text-align: right; }
+.op-head h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; max-width: 22ch; grid-column: 1 / -1; margin-top: 6px; }
+.op-head .promise { font-size: 1.3rem; color: #e2f2e9; grid-column: 1; }
+.op-head .for { font-size: 0.95rem; color: #bfe3cf; grid-column: 2; grid-row: 1; text-align: right; }
 .op-head .pdf { grid-column: 2; grid-row: 3; justify-self: end; align-self: center; background: #fff; color: var(--juniper); }
 :root[data-theme="dark"] .op-head { background: #0e3a25; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .op-head { background: #0e3a25; } }
 
-.op-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--rule); }
-.op-facts div { padding: 8px 12px; border-right: 1px solid var(--rule); }
+.op-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--rule); margin-top: 8px; }
+.op-facts div { padding: 20px 20px; border-right: 1px solid var(--rule); }
 .op-facts div:last-child { border-right: 0; }
-.op-facts b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 1.8rem; line-height: 1.1; color: var(--jacaranda); }
-.op-facts span { font-size: 0.82rem; color: var(--ink-2); }
-.op-seen { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 12px 24px; align-items: center; margin-bottom: 12px; }
+.op-facts b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 2.6rem; line-height: 1.1; color: var(--jacaranda); margin-bottom: 4px; }
+.op-facts span { font-size: 0.95rem; color: var(--ink-2); }
+.op-seen { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px 48px; align-items: center; margin-bottom: 28px; }
 .op-seen .lead { margin: 0; }
-.op-link { margin-top: 10px; font-size: 0.85rem; color: var(--ink-2); }
+.op-link { margin-top: 18px; font-size: 0.95rem; color: var(--ink-2); }
 .op mark.tbc { background: #fff1a8 !important; color: #4a3b00 !important; outline: 0; }
-.op blockquote { font-size: 1rem; font-style: italic; }
-.op blockquote cite { font-size: 0.78rem; margin-top: 4px; }
-.op .lead { color: var(--ink-2); font-size: 0.92rem; margin: -6px 0 10px; }
+.op blockquote { font-size: 1.25rem; font-style: italic; line-height: 1.45; }
+.op blockquote cite { font-size: 0.88rem; margin-top: 10px; }
+.op .lead { color: var(--ink-2); font-size: 1.08rem; margin: -4px 0 18px; }
 
-.op-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.op-block { border: 1px solid var(--rule); border-top: 4px solid var(--jacaranda); border-radius: 6px; padding: 14px 16px; background: var(--paper); font-size: 0.92rem; }
-.op-block h3 { margin-bottom: 4px; }
-.op-block .eyebrow { margin-bottom: 2px; }
-.op-block h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 10px 0 4px; }
-.op-steps { list-style: none; padding: 0; counter-reset: s; }
-.op-steps li { counter-increment: s; padding-left: 1.7em; position: relative; }
-.op-steps li::before { content: "0" counter(s); position: absolute; left: 0; top: 0.1em; font-family: var(--f-data); font-size: 0.72rem; color: var(--jacaranda); }
+.op-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 8px; }
+.op-block { border: 1px solid var(--rule); border-top: 4px solid var(--jacaranda); border-radius: 8px; padding: 26px 28px; background: var(--paper); font-size: 1rem; }
+.op-block h3 { margin-bottom: 10px; }
+.op-block .eyebrow { margin-bottom: 4px; }
+.op-block h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 22px 0 8px; }
+.op-steps { list-style: none; padding: 0; counter-reset: s; display: flex; flex-direction: column; gap: 10px; }
+.op-steps li { counter-increment: s; padding-left: 1.9em; position: relative; }
+.op-steps li::before { content: "0" counter(s); position: absolute; left: 0; top: 0.2em; font-family: var(--f-data); font-size: 0.78rem; color: var(--jacaranda); }
 .op-out b { color: var(--jacaranda); }
-.op-block .op-out + .op-out { margin-top: 3px; }
-.op h3 .n { display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; margin-right: 0.4em; border-radius: 50%; background: var(--jacaranda); color: #fff; font-family: var(--f-data); font-size: 0.7em; vertical-align: 0.15em; }
-.op-h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 8px 0 3px; }
-.op-format { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 6px 0 2px; }
-.op-format div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; padding: 6px 8px; text-align: center; font-size: 0.76rem; color: var(--ink-2); line-height: 1.25; }
-.op-format b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 1.2rem; color: var(--ink); }
+.op-block .op-out + .op-out { margin-top: 10px; }
+.op h3 .n { display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; margin-right: 0.45em; border-radius: 50%; background: var(--jacaranda); color: #fff; font-family: var(--f-data); font-size: 0.7em; vertical-align: 0.15em; }
+.op-h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 20px 0 8px; }
+.op-format { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 8px 0 18px; }
+.op-format div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 8px; text-align: center; font-size: 0.85rem; color: var(--ink-2); line-height: 1.3; }
+.op-format b { display: block; white-space: nowrap; font-family: var(--f-display); font-weight: 400; font-size: 1.3rem; color: var(--ink); margin-bottom: 2px; }
 
-.op-runs { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; font-size: 0.92rem; }
-.op-runs h2 { margin-bottom: 8px; }
-.op-price { font-family: var(--f-display); font-size: 1.25rem; line-height: 1.25; color: var(--jacaranda); margin-bottom: 8px; }
-.op-price small { display: block; font-family: var(--f-body); font-size: 0.85rem; color: var(--ink-2); }
-.op dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; }
-.op dt { font-family: var(--f-data); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); padding-top: 0.25em; }
+.op-runs { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; font-size: 1rem; }
+.op-runs h2 { margin-bottom: 18px; }
+.op-price { font-family: var(--f-display); font-size: 1.6rem; line-height: 1.25; color: var(--jacaranda); margin-bottom: 14px; }
+.op-price small { display: block; font-family: var(--f-body); font-size: 0.95rem; color: var(--ink-2); margin-top: 4px; }
+.op dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 18px 20px; }
+.op dt { font-family: var(--f-data); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); padding-top: 0.35em; }
 .op dd { margin: 0; }
 
-.op-next { margin-top: 14px; background: var(--jacaranda-soft); border-left: 4px solid var(--jacaranda); border-radius: 4px; padding: 10px 14px; }
-.op-next h2 { margin: 0 0 2px !important; font-size: 1.05rem !important; }
-.op-next .who { margin-top: 4px; font-size: 0.88rem; color: var(--ink-2); }
-.op footer { margin: 0; padding: 12px 28px 14px; border-top: 1px solid var(--rule); font-size: 0.74rem; }
+.op-next { margin-top: 28px; background: var(--jacaranda-soft); border-left: 4px solid var(--jacaranda); border-radius: 6px; padding: 20px 24px; }
+.op-next h2 { margin: 0 0 6px !important; font-size: 1.2rem !important; }
+.op-next .who { margin-top: 10px; font-size: 0.95rem; color: var(--ink-2); }
+.op footer { margin: 0; padding: 22px 56px 26px; border-top: 1px solid var(--rule); font-size: 0.82rem; }
 .op .short { display: none; }
 
 @media (max-width: 720px) {
-  .op { padding: 0 0 32px; }
+  .op { padding: 0 0 40px; }
   .op-sheet { border-radius: 0; border-inline: 0; }
-  .op section, .op-head, .op footer { padding-inline: 18px; }
-  .op-head { grid-template-columns: 1fr; }
+  .op section, .op-head, .op footer { padding-inline: 22px; }
+  .op section { padding-block: 36px; }
+  .op-head { grid-template-columns: 1fr; padding-block: 40px 36px; }
   .op-head .pdf, .op-head .for { grid-column: 1; grid-row: auto; justify-self: start; text-align: left; }
-  .op-head .pdf { margin-top: 6px; }
+  .op-head .pdf { margin-top: 10px; }
   .op-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .op-facts div:nth-child(2) { border-right: 0; }
   .op-facts div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
   .op-seen, .op-two, .op-runs { grid-template-columns: 1fr !important; }
+  .op-runs { gap: 40px; }
   .op-format { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Print: exactly one A4 page, backgrounds on, links as short URLs */
-@page { size: A4; margin: 12mm; }
+/* Print: A4 with room to breathe (two pages), backgrounds on, links as short URLs */
+@page { size: A4; margin: 16mm 16mm 14mm; }
 @media print {
   html, body { background: #fff !important; }
-  body { font-size: 9.5pt; line-height: 1.33; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .op { max-width: none; padding: 0; }
   .op-sheet { border: 0; border-radius: 0; }
-  .op-head { padding: 3.5mm 6mm; border-radius: 4px; gap: 1mm 6mm; }
-  .op-head h1 { font-size: 18pt; max-width: none; }
-  .op-head .promise { font-size: 11pt; }
-  .op-head .for { font-size: 8.5pt; }
+  .op-head { padding: 22mm 12mm 20mm; border-radius: 6px; gap: 5mm 8mm; }
+  .op-head h1 { font-size: 32pt; max-width: 20ch; }
+  .op-head .promise { font-size: 15pt; }
+  .op-head .for { font-size: 9.5pt; }
   .op-head .pdf { display: none; }
-  .op section { padding: 2.4mm 0; }
-  .op h2 { font-size: 12.5pt; margin-bottom: 2mm; }
-  .op h3 { font-size: 11pt; }
-  .op .eyebrow { font-size: 7pt; margin-bottom: 1mm; }
-  .op .lead { font-size: 9.5pt; margin: -1mm 0 2mm; }
-  .op-facts b { font-size: 17pt; }
-  .op-facts span { font-size: 8.5pt; }
-  .op-facts div { padding: 1.5mm 3mm; }
-  .op-seen { gap: 2mm 6mm; margin-bottom: 2mm; }
-  .op-link { margin-top: 1.5mm; font-size: 8.5pt; }
-  .op-facts b { font-size: 15pt; }
-  .op blockquote { font-size: 10pt; }
-  .op blockquote cite { font-size: 8pt; }
-  .op-two { gap: 4mm; }
-  .op-block { padding: 3mm 3.5mm; font-size: 9.5pt; }
-  .op-block h4 { font-size: 7pt; margin: 2mm 0 1mm; }
-  .op-format b { font-size: 12pt; }
-  .op-format div { font-size: 8pt; padding: 1.2mm 1mm; }
-  .op-h4 { font-size: 7pt; margin: 2mm 0 0.5mm; }
-  .op-runs { gap: 6mm; font-size: 9.5pt; }
-  .op-price { font-size: 12pt; }
-  .op-price small { font-size: 9pt; }
-  .op dt { font-size: 7pt; }
-  .op-next { margin-top: 3mm; padding: 2mm 3.5mm; }
-  .op-next h2 { font-size: 11pt !important; }
-  .op-next .who { font-size: 9pt; margin-top: 1mm; }
-  .op footer { padding: 2mm 0 0; font-size: 7.2pt; letter-spacing: -0.005em; white-space: nowrap; }
-  .op-block p + p, .op-block p + ul { margin-top: 1.5mm; }
+  .op section { padding: 6mm 0; }
+  .op h2 { font-size: 15pt; margin-bottom: 4mm; }
+  .op h3 { font-size: 12.5pt; }
+  .op .eyebrow { font-size: 7.5pt; margin-bottom: 2mm; }
+  .op .lead { font-size: 11pt; margin: 0 0 3mm; }
+  .op-seen { gap: 4mm 10mm; margin-bottom: 5mm; }
+  .op-facts div { padding: 3.5mm 4mm; }
+  .op-facts b { font-size: 22pt; }
+  .op-facts span { font-size: 9.5pt; }
+  .op-link { margin-top: 4mm; font-size: 9.5pt; }
+  .op blockquote { font-size: 12pt; }
+  .op blockquote cite { font-size: 9pt; }
+  .op-two { gap: 6mm; }
+  .op-block { padding: 4.5mm 5mm; font-size: 10pt; line-height: 1.45; }
+  .op-block h4 { font-size: 7.5pt; margin: 3.5mm 0 1.5mm; }
+  .op-steps { gap: 2mm; }
+  .op-format b { font-size: 14pt; }
+  .op-format div { font-size: 8.5pt; padding: 2.5mm 1mm; }
+  .op-h4 { font-size: 7.5pt; margin: 4mm 0 1.5mm; }
+  .op-runs { gap: 10mm; font-size: 10pt; line-height: 1.45; }
+  .op dl { gap: 2.5mm 5mm; }
+  .op dt { font-size: 7.5pt; }
+  .op-price { font-size: 15pt; }
+  .op-price small { font-size: 10pt; }
+  .op-next { margin-top: 4mm; padding: 3.5mm 5mm; }
+  .op-next h2 { font-size: 12.5pt !important; }
+  .op-next .who { font-size: 10pt; margin-top: 2mm; }
+  .op footer { padding: 4mm 0 0; font-size: 8pt; }
+  .op-block p + p, .op-block p + ul { margin-top: 2.5mm; }
   .op a { color: var(--jacaranda); text-decoration: none; }
-  .op .short { display: inline; font-family: var(--f-data); font-size: 8.5pt; }
+  .op .short { display: inline; font-family: var(--f-data); font-size: 9.5pt; }
   .op .long { display: none; }
-  .op section, .op-block, .op-head { break-inside: avoid; }
+  .op section[aria-labelledby="seen"] { padding-top: 14mm; }
+  .op section[aria-labelledby="seen"] h2 { font-size: 19pt; }
+  .op section[aria-labelledby="seen"] .lead { font-size: 12.5pt; }
+  .op-seen { margin-bottom: 9mm; }
+  .op blockquote { font-size: 15pt; }
+  .op-facts div { padding: 6mm 5mm; }
+  .op-facts b { font-size: 30pt; }
+  .op-facts span { font-size: 10.5pt; }
+  .op-link { margin-top: 7mm; font-size: 10.5pt; }
+  .op-block, .op-head, .op-runs > div, .op-seen, .op-facts { break-inside: avoid; }
+  .op section[aria-labelledby="propose"] { break-before: page; border-top: 0; padding-top: 0; }
 }
 </style>
 </head>
