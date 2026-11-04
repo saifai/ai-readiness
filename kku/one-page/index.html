@@ -101,69 +101,67 @@
   .op-format { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Print: exactly one A4 page (body text 9pt or larger), backgrounds on, links as short URLs */
-@page { size: A4; margin: 8mm 11mm 7mm; }
+/* Print: A4 with room to breathe (two pages: cover, then the proposal), backgrounds on, links as short URLs */
+@page { size: A4; margin: 10mm 14mm 8mm; }
 @media print {
   html, body { background: #fff !important; }
-  body { font-size: 9.5pt; line-height: 1.28; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .op { max-width: none; padding: 0; }
   .op-sheet { border: 0; border-radius: 0; }
-  .op-head { padding: 3mm 6mm; border-radius: 4px; gap: 0.5mm 6mm; }
-  .op-head h1 { font-size: 18pt; max-width: none; margin-top: 0; }
-  .op-head .promise { font-size: 11pt; grid-column: 1 / -1; }
-  .op-head .for { font-size: 8.5pt; }
+  .op-head { padding: 22mm 12mm 20mm; border-radius: 6px; gap: 5mm 8mm; }
+  .op-head h1 { font-size: 32pt; max-width: 20ch; }
+  .op-head .promise { font-size: 15pt; max-width: 34ch; }
+  .op-head .for { font-size: 9.5pt; }
   .op-head .pdf { display: none; }
-  .op section { padding: 2mm 0; }
-  .op-block, .op-runs, .op dd, .op p { line-height: 1.28; }
-  .op-head h1 { line-height: 1.05; }
-  .op h2 { font-size: 12.5pt; margin-bottom: 2mm; }
-  .op h3 { font-size: 11pt; }
-  .op .eyebrow { font-size: 7pt; margin-bottom: 1mm; }
-  .op .lead { font-size: 9.5pt; margin: -1mm 0 2mm; }
-  .op-facts { margin-top: 0; }
-  .op-facts b { font-size: 15pt; margin-bottom: 0; }
-  .op-facts span { font-size: 8.5pt; }
-  .op-facts div { padding: 1mm 3mm; }
-  .op-facts span { display: block; line-height: 1.2; }
-  .op-facts { grid-template-columns: 0.8fr 0.9fr 1.2fr 1.4fr; }
-  .op-seen { gap: 2mm 6mm; margin-bottom: 2mm; }
-  .op-link { margin-top: 1.5mm; font-size: 8.5pt; }
-  .op blockquote { font-size: 10pt; }
-  .op blockquote cite { font-size: 8pt; margin-top: 1mm; }
-  .op-two { gap: 3mm 4mm; margin-top: 0; }
-  .op-block { padding: 3mm 3.5mm; font-size: 9.5pt; }
-  .op-block h3 { margin-bottom: 1mm; }
-  .op-block h4 { font-size: 7pt; margin: 1.5mm 0 0.6mm; }
-  .op-steps { gap: 0.6mm; }
-  .op-block .op-out + .op-out { margin-top: 0.8mm; }
-  .op-format { gap: 1.5mm; margin: 0.8mm 0 1.2mm; }
-  .op-format b { line-height: 1.1; }
-  .op-format div { line-height: 1.15; }
-  .op-format b { font-size: 12pt; }
-  .op-format div { font-size: 8pt; padding: 0.9mm 1mm; }
-  .op-wide { gap: 0 5mm; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.2fr) minmax(0, 1fr); }
-  .op-wide > div + div h4:first-child { margin-top: 1mm; }
-  .op-steps { margin: 0; }
-  .op-block > p:first-of-type { margin-top: 0; }
-  .op-h4 { font-size: 7pt; margin: 2mm 0 0.5mm; }
-  .op-runs { gap: 6mm; font-size: 9.5pt; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
-  .op-runs h2 { margin-bottom: 2mm; }
-  .op dl { gap: 1mm 3mm; }
-  .op dt { font-size: 7pt; }
-  .op-price { font-size: 12pt; margin-bottom: 1mm; }
-  .op-price small { font-size: 9pt; margin-top: 0; }
-  .op-next { margin-top: 0; padding: 1.8mm 3.5mm; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 4mm; }
-  .op-next p + p { margin-top: 0; }
-  .op-runs > div:nth-child(2) { grid-row: auto; }
-  .op-runs { row-gap: 3mm; }
-  .op-next h2 { font-size: 11pt !important; margin: 0 !important; }
-  .op-next .who { font-size: 9pt; margin: 0 0 0 auto; }
-  .op footer { padding: 2mm 0 0; font-size: 7.2pt; letter-spacing: -0.005em; white-space: nowrap; }
-  .op p + p, .op p + ul, .op ul + p, .op-block p + p { margin-top: 1.5mm; }
+  .op section { padding: 3mm 0; }
+  .op-runs h2 { margin-bottom: 2.5mm; }
+  .op h2 { font-size: 15pt; margin-bottom: 3.5mm; }
+  .op h3 { font-size: 12.5pt; }
+  .op .eyebrow { font-size: 7.5pt; margin-bottom: 2mm; }
   .op a { color: var(--jacaranda); text-decoration: none; }
-  .op .short { display: inline; font-family: var(--f-data); font-size: 8.5pt; }
+  .op .short { display: inline; font-family: var(--f-data); font-size: 10pt; }
   .op .long { display: none; }
-  .op section, .op-block, .op-head { break-inside: avoid; }
+
+  /* Page 1: the cover */
+  .op section[aria-labelledby="seen"] { padding-top: 14mm; }
+  .op section[aria-labelledby="seen"] h2 { font-size: 19pt; }
+  .op section[aria-labelledby="seen"] .lead { font-size: 12.5pt; margin: 0 0 3mm; }
+  .op-seen { gap: 4mm 10mm; margin-bottom: 9mm; }
+  .op blockquote { font-size: 15pt; }
+  .op blockquote cite { font-size: 9pt; }
+  .op-facts div { padding: 6mm 5mm; }
+  .op-facts b { font-size: 30pt; }
+  .op-facts span { font-size: 10.5pt; }
+  .op-link { margin-top: 7mm; font-size: 10.5pt; }
+
+  /* Page 2: the proposal */
+  .op section[aria-labelledby="propose"] { break-before: page; border-top: 0; padding-top: 0; }
+  .op-two { gap: 4mm 5mm; }
+  .op-block { padding: 4mm 5mm; font-size: 10pt; line-height: 1.35; }
+  .op-block h3 { margin-bottom: 1.5mm; }
+  .op-block h4 { font-size: 7.5pt; margin: 3mm 0 1.2mm; }
+  .op-block p + p, .op-block p + ul { margin-top: 2mm; }
+  .op-steps { gap: 1.5mm; margin: 0; }
+  .op-block .op-out + .op-out { margin-top: 1.5mm; }
+  .op-format { gap: 2mm; margin: 1.5mm 0 2.5mm; }
+  .op-format b { font-size: 14pt; line-height: 1.1; }
+  .op-format div { font-size: 8.5pt; padding: 2mm 1mm; line-height: 1.2; }
+  .op-wide { gap: 0 6mm; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1.15fr); }
+  .op-wide > div + div h4:first-child { margin-top: 1mm; }
+  .op-h4 { font-size: 7.5pt; margin: 3mm 0 1.2mm; }
+  .op-runs { gap: 4mm 9mm; font-size: 10pt; line-height: 1.35; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+  .op-runs > div:nth-child(2) { grid-row: auto; }
+  .op dl { gap: 2mm 5mm; }
+  .op dt { font-size: 7.5pt; }
+  .op-price { font-size: 15pt; margin-bottom: 1.5mm; }
+  .op-price small { font-size: 10pt; }
+  .op-next { margin-top: 0; padding: 2.5mm 5mm; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 5mm; }
+  .op-next p + p { margin-top: 0; }
+  .op-next h2 { font-size: 12.5pt !important; margin: 0 !important; }
+  .op-next .who { font-size: 10pt; margin: 0 0 0 auto; }
+  .op footer { padding: 2.5mm 0 0; font-size: 7.5pt; white-space: normal; }
+  .op-wide h3 { font-size: 11.5pt; white-space: nowrap; }
+  .op-block, .op-head, .op-seen, .op-facts, .op-runs > *, .op-next { break-inside: avoid; }
 }
 </style>
 </head>
