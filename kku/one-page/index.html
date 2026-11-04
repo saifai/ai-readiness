@@ -57,21 +57,24 @@
 .op-steps { list-style: none; padding: 0; counter-reset: s; display: flex; flex-direction: column; gap: 10px; }
 .op-steps li { counter-increment: s; padding-left: 1.9em; position: relative; }
 .op-steps li::before { content: "0" counter(s); position: absolute; left: 0; top: 0.2em; font-family: var(--f-data); font-size: 0.78rem; color: var(--jacaranda); }
-.op-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0 28px; }
-.op-wide > div + div h4:first-child { margin-top: 6px; }
+.op-wide { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; }
+.op-wide > h3 { grid-column: 1 / -1; margin-bottom: 0; }
+.op-wide h4 { margin-top: 14px; }
 .op-when { color: var(--jacaranda); }
 .op-out b { color: var(--jacaranda); }
 .op-block .op-out + .op-out { margin-top: 10px; }
 .op h3 .n { display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; margin-right: 0.45em; border-radius: 50%; background: var(--jacaranda); color: #fff; font-family: var(--f-data); font-size: 0.7em; vertical-align: 0.15em; }
 .op-h4 { font-family: var(--f-data); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 20px 0 8px; }
-.op-format { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 8px 0 18px; }
-.op-format div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 8px; text-align: center; font-size: 0.85rem; color: var(--ink-2); line-height: 1.3; }
+.op-format { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 8px 0 18px; }
+.op-format div { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 10px; text-align: center; font-size: 0.85rem; color: var(--ink-2); line-height: 1.3; }
 .op-format b { display: block; white-space: nowrap; font-family: var(--f-display); font-weight: 400; font-size: 1.3rem; color: var(--ink); margin-bottom: 2px; }
 
 .op-runs { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px 56px; font-size: 1rem; }
 .op-runs h2 { margin-bottom: 18px; }
-.op-runs > div:nth-child(2) { grid-row: span 2; }
-.op-runs > .op-next { align-self: start; }
+.op-runs > .op-next { grid-column: 1 / -1; margin-top: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; }
+.op-runs > .op-next p + p { margin-top: 0; }
+.op-runs > .op-next .who { margin: 0 0 0 auto; }
+.op-runs > .op-next h2 { margin: 0 !important; }
 .op-price { font-family: var(--f-display); font-size: 1.6rem; line-height: 1.25; color: var(--jacaranda); margin-bottom: 14px; }
 .op-price small { display: block; font-family: var(--f-body); font-size: 0.95rem; color: var(--ink-2); margin-top: 4px; }
 .op dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 18px 20px; }
@@ -84,7 +87,19 @@
 .op footer { margin: 0; padding: 22px 56px 26px; border-top: 1px solid var(--rule); font-size: 0.82rem; }
 .op .short { display: none; }
 
-@media (max-width: 720px) {
+/* Tablet: one column for the program cards and the support strip */
+@media screen and (max-width: 900px) {
+  .op section { padding-inline: 36px; }
+  .op-head { padding-inline: 36px; }
+  .op-two, .op-wide { grid-template-columns: 1fr !important; }
+  .op-wide h4 { margin-top: 18px; }
+  .op-head { grid-template-columns: 1fr; }
+  .op-head .pdf, .op-head .for { grid-column: 1; grid-row: auto; justify-self: start; text-align: left; }
+  .op-head .pdf { margin-top: 10px; }
+  .op-runs > .op-next .who { margin: 0; }
+}
+
+@media screen and (max-width: 720px) {
   .op { padding: 0 0 40px; }
   .op-sheet { border-radius: 0; border-inline: 0; }
   .op section, .op-head, .op footer { padding-inline: 22px; }
@@ -96,9 +111,8 @@
   .op-facts div:nth-child(2) { border-right: 0; }
   .op-facts div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
   .op-seen, .op-two, .op-runs, .op-wide { grid-template-columns: 1fr !important; }
-  .op-wide > div + div h4:first-child { margin-top: 22px; }
   .op-runs { gap: 40px; }
-  .op-format { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .op-runs > .op-next .who { margin: 0; }
 }
 
 /* Print: A4 with room to breathe (two pages: cover, then the proposal), backgrounds on, links as short URLs */
@@ -113,7 +127,7 @@
   .op-head .promise { font-size: 15pt; max-width: 34ch; }
   .op-head .for { font-size: 9.5pt; }
   .op-head .pdf { display: none; }
-  .op section { padding: 3mm 0; }
+  .op section { padding: 2.5mm 0; }
   .op-runs h2 { margin-bottom: 2.5mm; }
   .op h2 { font-size: 15pt; margin-bottom: 3.5mm; }
   .op h3 { font-size: 12.5pt; }
@@ -137,17 +151,18 @@
   /* Page 2: the proposal */
   .op section[aria-labelledby="propose"] { break-before: page; border-top: 0; padding-top: 0; }
   .op-two { gap: 4mm 5mm; }
-  .op-block { padding: 4mm 5mm; font-size: 10pt; line-height: 1.35; }
+  .op-block { padding: 3.5mm 4.5mm; font-size: 10pt; line-height: 1.35; }
   .op-block h3 { margin-bottom: 1.5mm; }
   .op-block h4 { font-size: 7.5pt; margin: 3mm 0 1.2mm; }
   .op-block p + p, .op-block p + ul { margin-top: 2mm; }
   .op-steps { gap: 1.5mm; margin: 0; }
   .op-block .op-out + .op-out { margin-top: 1.5mm; }
-  .op-format { gap: 2mm; margin: 1.5mm 0 2.5mm; }
-  .op-format b { font-size: 14pt; line-height: 1.1; }
-  .op-format div { font-size: 8.5pt; padding: 2mm 1mm; line-height: 1.2; }
-  .op-wide { gap: 0 6mm; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1.15fr); }
-  .op-wide > div + div h4:first-child { margin-top: 1mm; }
+  .op-format { gap: 2mm; margin: 1.5mm 0 2.5mm; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .op-format b { font-size: 11.5pt; line-height: 1.1; white-space: nowrap; }
+  .op-format div { font-size: 8.5pt; padding: 1.6mm 1.5mm; line-height: 1.2; }
+  .op-wide { gap: 0 6mm; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .op-wide h4 { margin-top: 1.2mm; }
+  .op-wide > h3 { margin-bottom: 0; }
   .op-h4 { font-size: 7.5pt; margin: 3mm 0 1.2mm; }
   .op-runs { gap: 4mm 9mm; font-size: 10pt; line-height: 1.35; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
   .op-runs > div:nth-child(2) { grid-row: auto; }
@@ -155,12 +170,11 @@
   .op dt { font-size: 7.5pt; }
   .op-price { font-size: 15pt; margin-bottom: 1.5mm; }
   .op-price small { font-size: 10pt; }
-  .op-next { margin-top: 0; padding: 2.5mm 5mm; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 5mm; }
+  .op-next { margin-top: 0; padding: 2mm 5mm; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 5mm; }
   .op-next p + p { margin-top: 0; }
   .op-next h2 { font-size: 12.5pt !important; margin: 0 !important; }
-  .op-next .who { font-size: 10pt; margin: 0 0 0 auto; }
+  .op-next .who { font-size: 10pt; margin: 0 0 0 auto; white-space: nowrap; }
   .op footer { padding: 2.5mm 0 0; font-size: 7.5pt; white-space: normal; }
-  .op-wide h3 { font-size: 11.5pt; white-space: nowrap; }
   .op-block, .op-head, .op-seen, .op-facts, .op-runs > *, .op-next { break-inside: avoid; }
 }
 </style>
@@ -225,8 +239,9 @@
       <p><b>Why it matters for KKU:</b> students hear first-hand what employers and founders look for, from people with real track records.</p>
     </div>
     <div class="op-block op-wide">
+      <h3><span class="n">3</span>Monthly Support Sessions</h3>
       <div>
-        <h3><span class="n">3</span>Monthly Support Sessions</h3>
+        <h4>What it is</h4>
         <p>Support after the program ends, so students are not left on their own: <b class="op-when">online, 90 minutes, once a month</b>, for the 3 months after each cohort finishes.</p>
       </div>
       <div>
@@ -249,7 +264,7 @@
         <dt>Delivery</dt><dd>Online, with facilitators and assistants; an AI assistant handles routine questions. Every student is set up before day one. Once KKU agrees, we will suggest how best to run it for your students.</dd>
         <dt>Schedule</dt><dd>Proposed: first cohort in December 2026, then a new cohort every quarter, for KKU to agree.</dd>
         <dt>KKU</dt><dd>Nominates the students and a coordinator. We run everything else.</dd>
-        <dt>Team</dt><dd>FLOW Management Consultancies. The team that ran the pilot, led by Sai Blackbyrn.</dd>
+        <dt>Team</dt><dd>FLOW Management Consultancies. The team that ran the pilot, led by Sai C N G Blackbyrn.</dd>
       </dl>
     </div>
     <div>
@@ -261,7 +276,7 @@
     <div class="op-next">
       <h2 id="next">Next step</h2>
       <p><b>Confirm student numbers and the December start date.</b></p>
-      <p class="who">Contact: <mark class="tbc">[Name]</mark> · <mark class="tbc">[Email]</mark></p>
+      <p class="who">Contact: Mynoo C N G Blackbyrn · <a href="mailto:mynoo@mynoomaryel.com">mynoo@mynoomaryel.com</a></p>
     </div>
   </div>
 </section>
